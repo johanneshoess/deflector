@@ -1,9 +1,33 @@
-console.log('START PLUGIN')
+console.log('START PLUGIN  -> ' + window.location.href)
 
+function blurPage(radius){
+    document.body.style.filter = `blur(${radius}px)`;
+}
+
+
+var url = window.location.href;
 
 let blocklist = {
-    dayily: ["*://*.reddit.com/*", "*://*.sueddeutsche.de/*"]
+    dayily: ["reddit.com", "sueddeutsche.de", "twitter", "bildblog"]
 }
+
+var isBlock = blocklist.dayily.find(block => url.includes(block));
+
+if(isBlock){
+    console.log('IST ENTHALTEN ----->>>>' + isBlock)
+
+
+    var blurRadius = 0;
+    
+
+    setInterval(function(){ blurPage(blurRadius); blurRadius++; }, 3000);
+}
+
+
+
+
+
+/*
 
 function setItem() {
     console.log("OK - set");
@@ -27,3 +51,5 @@ browser.storage.local.set({ blocklist })
 
 let settingItem = browser.storage.local.get("blocklist")
     .then(gotBlocklist, onError);
+
+*/
