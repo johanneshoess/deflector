@@ -19,8 +19,9 @@ if(isBlock){
 
     var blurRadius = 0;
     
-
-    setInterval(function(){ blurPage(blurRadius); blurRadius++; }, 3000);
+    setTimeout(function(){ 
+        setInterval(function(){ blurPage(blurRadius); blurRadius++; }, 3000);
+     }, 10000);
 }
 
 
